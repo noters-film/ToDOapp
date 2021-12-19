@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Todo extends Model
 {
     use \Rutorika\Sortable\SortableTrait;
-
+    
     public function user()
     {
         return $this->belongsTo('App\User');
@@ -16,5 +16,10 @@ class Todo extends Model
     public function goal()
     {
         return $this->belongsTo('App\Goal');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag');
     }
 }
