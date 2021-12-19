@@ -71,7 +71,8 @@ class TodoController extends Controller
         $todos = $goal->todos()->orderBy('done', 'asc')->orderBy('position', 'asc')->get();
         return response()->json($todos);
     }
-        public function sort(Request $request, Goal $goal, Todo $todo)
+    
+    public function sort(Request $request, Goal $goal, Todo $todo)
     {
         $exchangeTodo = Todo::where('position', request('sortId'))->first();
         $lastTodo = Todo::where('position', request('sortId'))->latest('position')->first();
